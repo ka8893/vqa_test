@@ -7,7 +7,8 @@ import io
 import os
 from tempfile import NamedTemporaryFile
 
-from openai import OpenAI
+!pip install openai
+import openai
 import requests
 import streamlit as st
 from PIL import Image, ImageOps
