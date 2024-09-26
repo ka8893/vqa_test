@@ -1,5 +1,5 @@
 import streamlit as st
-st.markdown('### OpenAI GPT-4o')
+st.markdown('### VQA Demo')
 
 import base64
 import io
@@ -13,6 +13,19 @@ from PIL import Image, ImageOps
 from st_audiorec import st_audiorec
 from streamlit_drawable_canvas import st_canvas
 
+import pathlib
+import textwrap
+import google.generativeai as genai
+
+# Used to securely store your API key
+from google.colab import userdata
+
+from IPython.display import display
+from IPython.display import Markdown
+
+def to_markdown(text):
+  text = text.replace('•', '  *')
+  return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 def image_config():
     col1, col2 = st.columns(2)
@@ -39,7 +52,7 @@ if "all_text" not in st.session_state:
     st.session_state.all_text = []
 
 with st.sidebar:
-    st.title("OpenAI API Examples")
+    st.title("VQA Model")
     o_api_key = st.text_input("OPEN_AI_KEY", type="password")
     g_api_key = st.text_input("GEMINI_KEY", type="password")
     mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash"])
