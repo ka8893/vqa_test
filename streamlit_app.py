@@ -97,7 +97,7 @@ if o_api_key or g_api_key:
     if mode == "Google Gemini 1.5 Flash":
         genai.configure(api_key=g_api_key)
         uploaded_file = st.file_uploader(
-            "Upload an image to analyze", type=["jpg", "jpeg", "png"]
+            "Upload an image to analyze", type=["jpg", "jpeg", "png"], accept_multiple_files=True
         )
         base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。."
         input_image_prompt = st.text_area(
@@ -127,7 +127,7 @@ if o_api_key or g_api_key:
             st.image(uploaded_file)
             response = model.generate_content([
                 "起こっているのは、火災、大雪、冠水、地震、倒木、電柱倒壊、非該当のうちどれか一言で教えてください。",
-                uploaded_file
+                *uploaded_file
             ], stream=True)
             response.resolve()
  
