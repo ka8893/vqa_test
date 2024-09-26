@@ -127,7 +127,7 @@ if o_api_key or g_api_key:
             st.image(uploaded_file)
             response = model.generate_content([
                 "起こっているのは、火災、大雪、冠水、地震、倒木、電柱倒壊、非該当のうちどれか一言で教えてください。",
-                *uploaded_file
+                uploaded_file
             ], stream=True)
             response.resolve()
  
