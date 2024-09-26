@@ -1,5 +1,5 @@
 import streamlit as st
-st.markdown('### VQA Demo')
+st.markdown('## VQA Demo')
 
 import base64
 import io
@@ -55,6 +55,7 @@ if o_api_key or g_api_key:
     openai.api_key = o_api_key
  
     if mode == "OpenAI GPT-4o":
+        st.markdown('### OpenAI GPT-4o')
         uploaded_file = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"]
         )
@@ -95,6 +96,7 @@ if o_api_key or g_api_key:
                     st.write(response["choices"][0]["message"]["content"])
 
     if mode == "Google Gemini 1.5 Flash":
+        st.markdown('### Google Gemini 1.5 Flash')
         genai.configure(api_key=g_api_key)
         uploaded_file = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"], accept_multiple_files=True
