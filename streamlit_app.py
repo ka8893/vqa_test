@@ -311,7 +311,7 @@ if api_key:
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
         )
-        if uploaded_files:
+        if uploaded_file:
             st.image(uploaded_files)
             payload = {
                 "model": "gpt-4o",
