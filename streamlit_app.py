@@ -95,6 +95,7 @@ if o_api_key or g_api_key:
                     st.write(response["choices"][0]["message"]["content"])
 
     if mode == "Google Gemini 1.5 Flash":
+        genai.configure(api_key=g_api_key)
         uploaded_file = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"]
         )
