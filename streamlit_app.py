@@ -2,7 +2,6 @@ import streamlit as st
 st.markdown('### OpenAI GPT-4o')
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
-!pip install openai
 import base64
 import io
 import os
