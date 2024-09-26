@@ -304,7 +304,7 @@ if api_key:
                             st.image(image_url)
 
     if mode == "画像認識":
-        uploaded_file = st.file_uploader(
+        uploaded_files = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"], accept_multiple_files=True
         )
         for uploaded_file in uploaded_files:
