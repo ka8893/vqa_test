@@ -59,7 +59,7 @@ if o_api_key or g_api_key:
         uploaded_file = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"]
         )
-        base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。."
+        base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。"
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
         )
@@ -101,7 +101,7 @@ if o_api_key or g_api_key:
         uploaded_file = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"], accept_multiple_files=True
         )
-        base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。."
+        base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。"
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
         )
