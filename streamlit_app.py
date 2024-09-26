@@ -1,6 +1,5 @@
 import streamlit as st
 st.markdown('### OpenAI GPT-4o')
-uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
 import base64
 import io
@@ -305,15 +304,19 @@ if api_key:
                             st.image(image_url)
 
     if mode == "画像認識":
-        uploaded_file = st.file_uploader(
+        uploaded_file1 = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"]
         )
-        base_prompt = "Please describe in detail what the image looks like.Look carefully at the number of objects, type (human, animal, object, etc.), expression, background, location, country, brightness, weather and time of day, indoor or outdoor, period, and atmosphere."
+        uploaded_file2 = st.file_uploader(
+            "Upload an image to analyze", type=["jpg", "jpeg", "png"]
+        )
+        base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。."
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
         )
-        if uploaded_file:
-            st.image(uploaded_file)
+        if uploaded_file1 and uploaded_file2:
+            st.image(uploaded_file1)
+            st.image(uploaded_file2)
             payload = {
                 "model": "gpt-4o",
                 "messages": [
@@ -325,7 +328,32 @@ if api_key:
                             {
                                 "type": "image_url",
                                 "image_url": {
-                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}"
+                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file1.getvalue()).decode()}"
+                                },
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file2.getvalue()).decode()}"
+                                },
+                            },
+                        ],
+                         }
+                ],
+                "max_tokens": 300,
+            }
+        elif uploaded_file1:
+            st.image(uploaded_file1)
+            payload = {
+                "model": "gpt-4o",
+                "messages": [
+                    
+                        {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
+                        {"role": "user",
+                        "content": [
+                            {"type": "text", "text": input_image_prompt},
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file1.getvalue()).decode()}"
                                 },
                             },
                         ],
