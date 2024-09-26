@@ -7,7 +7,6 @@ import io
 import os
 from tempfile import NamedTemporaryFile
 
-pip install openai
 import openai
 import requests
 import streamlit as st
