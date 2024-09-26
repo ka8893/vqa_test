@@ -5,5 +5,4 @@ streamlit_drawable_canvas
 Pillow
 streamlit-audiorec
 google.generativeai
-pathlib
-textwrap
+
