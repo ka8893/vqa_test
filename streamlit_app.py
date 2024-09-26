@@ -2,7 +2,7 @@ import streamlit as st
 st.markdown('### Google Gemini 1.5 Flash')
 uploaded_file = st.file_uploader("画像をアップロードしてください。")
 
-pip install -q -U google-generativeai
+# pip install -q -U google-generativeai
 import pathlib
 import textwrap
 
