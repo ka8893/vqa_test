@@ -362,7 +362,7 @@ if api_key:
                 "max_tokens": 300,
             }
         if st.button("Submit"):
-            if uploaded_file:
+            if uploaded_file1:
                 with st.spinner("生成中..."):
                     response = requests.post(
                         "https://api.openai.com/v1/chat/completions",
