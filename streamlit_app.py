@@ -16,7 +16,7 @@ from streamlit_drawable_canvas import st_canvas
 import pathlib
 import textwrap
 import google.generativeai as genai
-pip freeze > requirements.txt
+
 def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
