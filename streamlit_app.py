@@ -315,10 +315,11 @@ if api_key:
         if uploaded_file:
             st.image(uploaded_file)
             payload = {
-                "model": "gpt-4-vision-preview",
+                "model": "gpt-4o",
                 "messages": [
-                    {
-                        "role": "user",
+                    
+                        {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
+                        {"role": "user",
                         "content": [
                             {"type": "text", "text": input_image_prompt},
                             {
@@ -328,7 +329,7 @@ if api_key:
                                 },
                             },
                         ],
-                    }
+                         }
                 ],
                 "max_tokens": 300,
             }
