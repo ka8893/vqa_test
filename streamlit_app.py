@@ -305,10 +305,8 @@ if api_key:
 
     if mode == "画像認識":
         uploaded_files = st.file_uploader(
-            "Upload an image to analyze", type=["jpg", "jpeg", "png"], accept_multiple_files=True
+            "Upload an image to analyze", type=["jpg", "jpeg", "png"]
         )
-        for uploaded_file in uploaded_files:
-            st.write(uploaded_file.name)
         base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。."
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
@@ -326,7 +324,7 @@ if api_key:
                             {
                                 "type": "image_url",
                                 "image_url": {
-                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_files.getvalue()).decode()}"
+                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}"
                                 },
                             },
                         ],
@@ -336,7 +334,7 @@ if api_key:
             }
         
         if st.button("Submit"):
-            if uploaded_files:
+            if uploaded_file:
                 with st.spinner("生成中..."):
                     response = requests.post(
                         "https://api.openai.com/v1/chat/completions",
