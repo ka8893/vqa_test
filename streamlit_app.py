@@ -121,50 +121,6 @@ if U > 0:
                     ).json()
                     st.write(response["choices"][0]["message"]["content"])
 
-    if mode == "Google Gemini 1.5 Flash":
-        st.markdown('### Google Gemini 1.5 Flash')
-        uploaded_file = st.file_uploader(
-            "1枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
-        )
-        uploaded_file2 = st.file_uploader(
-            "2枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
-        )
-        base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。"
-        input_image_prompt = st.text_area(
-            "Enter your prompt:", key="input_image_prompt", value=base_prompt
-        )
-        safety_settings = [
-            {
-                "category": "HARM_CATEGORY_HARASSMENT",  # ハラスメントに関する内容を制御
-                "threshold": "BLOCK_NONE"     # 中程度以上のハラスメントをブロック
-            },
-            {
-                "category": "HARM_CATEGORY_HATE_SPEECH",  # ヘイトスピーチに関する内容を制御
-                "threshold": "BLOCK_NONE"      # 中程度以上のヘイトスピーチをブロック
-            },
-            {
-                "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",  # 性的に露骨な内容を制御
-                "threshold": "BLOCK_NONE"            # 中程度以上の性的内容をブロック
-            },
-            {
-                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",  # 危険な内容を制御
-                "threshold": "BLOCK_NONE"            # 中程度以上の危険な内容をブロック
-            }
-        ]
-        # モデルの準備
-        model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest", safety_settings=safety_settings)
-        if uploaded_file:
-            image = PIL.Image.open(uploaded_file)
-            image2 = PIL.Image.open(uploaded_file2)
-            images = [image, 
-                      image2]
-            st.image(images)
-            contents = [*images, base_prompt]
-        if st.button("Submit"):
-            with st.spinner("生成中..."):
-                responses = model.generate_content(contents, stream=True)
-                # レスポンスの表示
-                for response in responses:
-                    st.write(response.text)
+
 else:
     st.info("OPENAI_API_KEY")
