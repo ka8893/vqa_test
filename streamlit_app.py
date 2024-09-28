@@ -126,7 +126,10 @@ if U > 0:
     if mode == "Google Gemini 1.5 Flash":
         st.markdown('### Google Gemini 1.5 Flash')
         uploaded_file = st.file_uploader(
-            "Upload an image to analyze", type=["jpg", "jpeg", "png"]
+            "1枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
+        )
+        uploaded_file2 = st.file_uploader(
+            "2枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
         )
         base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。"
         input_image_prompt = st.text_area(
@@ -154,8 +157,11 @@ if U > 0:
         model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest", safety_settings=safety_settings)
         if uploaded_file:
             image = PIL.Image.open(uploaded_file)
-            st.image(image)
-            contents = [image, base_prompt]
+            image2 = PIL.Image.open(uploaded_file2)
+            images = [image, 
+                      image2]
+            st.image(images)
+            contents = [images, base_prompt]
         if st.button("Submit"):
             with st.spinner("生成中..."):
                 responses = model.generate_content(contents, stream=True)
