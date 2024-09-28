@@ -66,9 +66,9 @@ if U > 0:
         if uploaded_file and uploaded_file2:
             st.image(uploaded_file)
             st.image(uploaded_file2)
-            completion = client.chat.completions.create(
-                model= "gpt-4o",
-                messages= [
+            payload = {
+                "model": "gpt-4o",
+                "messages": [
                     
                         {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
                         {"role": "user",
@@ -89,13 +89,13 @@ if U > 0:
                         ],
                          }
                 ],
-            )
+            }
         
         elif uploaded_file:
             st.image(uploaded_file)
-            completion = client.chat.completions.create(
-                model = "gpt-4o",
-                messages= [
+            payload = {
+                "model": "gpt-4o",
+                "messages": [
                     
                         {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
                         {"role": "user",
@@ -110,7 +110,7 @@ if U > 0:
                         ],
                          }
                 ],
-            )
+            }
         if st.button("Submit"):
             if uploaded_file:
                 with st.spinner("生成中..."):
@@ -119,8 +119,7 @@ if U > 0:
                         headers={"Authorization": f"Bearer {openai.api_key}"},
                         json=payload,
                     ).json()
-                    # st.write(response["choices"][0]["message"]["content"])
-                    st.write(completion.choices[0].message.content)
+                    st.write(response["choices"][0]["message"]["content"])
 
     if mode == "Google Gemini 1.5 Flash":
         st.markdown('### Google Gemini 1.5 Flash')
