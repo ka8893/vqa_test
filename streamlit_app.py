@@ -66,7 +66,7 @@ if U > 0:
         if uploaded_file and uploaded_file2:
             st.image(uploaded_file)
             st.image(uploaded_file2)
-            payload = {
+            completion = client.chat.completions.create(
                 "model": "gpt-4o",
                 "messages": [
                     
@@ -90,11 +90,11 @@ if U > 0:
                          }
                 ],
                 "max_tokens": 300,
-            }
+            )
         
         elif uploaded_file:
             st.image(uploaded_file)
-            payload = {
+            completion = client.chat.completions.create(
                 "model": "gpt-4o",
                 "messages": [
                     
@@ -112,7 +112,7 @@ if U > 0:
                          }
                 ],
                 "max_tokens": 300,
-            }
+            )
         if st.button("Submit"):
             if uploaded_file:
                 with st.spinner("生成中..."):
