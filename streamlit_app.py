@@ -151,7 +151,8 @@ if U > 0:
             }
         ]
         # モデルの準備
-        model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest", safety_settings=safety_settings)
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest")
+        #, safety_settings=safety_settings)
         if uploaded_file:
             st.image(uploaded_file)
             response = model.generate_content([
