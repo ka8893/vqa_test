@@ -9,7 +9,7 @@ from tempfile import NamedTemporaryFile
 import openai
 import requests
 import streamlit as st
-from PIL import Image, ImageOps
+import PIL.Image
 from st_audiorec import st_audiorec
 from streamlit_drawable_canvas import st_canvas
 
