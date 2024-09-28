@@ -161,7 +161,7 @@ if U > 0:
             images = [image, 
                       image2]
             st.image(images)
-            contents = [images, base_prompt]
+            contents = [*images, base_prompt]
         if st.button("Submit"):
             with st.spinner("生成中..."):
                 responses = model.generate_content(contents, stream=True)
