@@ -157,7 +157,6 @@ if U > 0:
             st.image(image)
             prompt = st.text_input("起こっているのは、火災、大雪、冠水、地震、倒木、電柱倒壊、非該当のうちどれか一言で教えてください。")
             contents = [image, prompt]
-            response.resolve()
         if st.button("Submit"):
             with st.spinner("生成中..."):
                 responses = model.generate_content(contents, stream=True)
