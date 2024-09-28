@@ -89,7 +89,7 @@ if U > 0:
                         ],
                          }
                 ],
-                "max_tokens": 300,
+                max_tokens= 300,
             )
         
         elif uploaded_file:
@@ -111,7 +111,7 @@ if U > 0:
                         ],
                          }
                 ],
-                "max_tokens": 300,
+                max_tokens= 300,
             )
         if st.button("Submit"):
             if uploaded_file:
