@@ -17,6 +17,8 @@ import pathlib
 import textwrap
 import google.generativeai as genai
 
+openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+
 def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
@@ -52,9 +54,7 @@ with st.sidebar:
     # g_api_key = st.text_input("GEMINI_KEY", type="password")
     mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash"])
 
-if U > 0:
-    openai.api_key = OPENAI_API_KEY
- 
+if U > 0: 
     if mode == "OpenAI GPT-4o":
         st.markdown('### OpenAI GPT-4o')
         uploaded_file = st.file_uploader(
