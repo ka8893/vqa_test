@@ -155,8 +155,7 @@ if U > 0:
         if uploaded_file:
             image = PIL.Image.open(uploaded_file)
             st.image(image)
-            prompt = st.text_input("起こっているのは、火災、大雪、冠水、地震、倒木、電柱倒壊、非該当のうちどれか一言で教えてください。")
-            contents = [image, prompt]
+            contents = [image, base_prompt]
         if st.button("Submit"):
             with st.spinner("生成中..."):
                 responses = model.generate_content(contents, stream=True)
