@@ -59,7 +59,8 @@ if U > 0:
     if mode == "OpenAI GPT-4o":
         st.markdown('### OpenAI GPT-4o')
         uploaded_file = st.file_uploader(
-            "Upload an image to analyze", type=["jpg", "jpeg", "png"], accept_multiple_files=True
+            "Upload an image to analyze", type=["jpg", "jpeg", "png"]
+            # , accept_multiple_files=True
         )
         uploaded_file2 = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"]
