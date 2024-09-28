@@ -58,11 +58,9 @@ with st.sidebar:
 if U > 0: 
     if mode == "OpenAI GPT-4o":
         st.markdown('### OpenAI GPT-4o')
-        st.markdown('### Input 1')
         uploaded_file = st.file_uploader(
             "1枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
         )
-        st.markdown('### Input 2')
         uploaded_file2 = st.file_uploader(
             "2枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
         )
@@ -70,7 +68,7 @@ if U > 0:
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
         )
-        if uploaded_file:
+        if uploaded_file or uploaded_file2:
             st.image(uploaded_file)
             payload = {
                 "model": "gpt-4o",
@@ -84,6 +82,12 @@ if U > 0:
                                 "type": "image_url",
                                 "image_url": {
                                     "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}"
+                                },
+                            },
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file2.getvalue()).decode()}"
                                 },
                             },
                         ],
