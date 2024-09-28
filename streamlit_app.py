@@ -160,16 +160,6 @@ if U > 0:
                 image
             ], stream=True)
             response.resolve()
- 
-        if st.button("Submit"):
-            if uploaded_file:
-                with st.spinner("生成中..."):
-                    response = requests.post(
-                        "https://api.openai.com/v1/chat/completions",
-                        headers={"Authorization": f"Bearer {openai.api_key}"},
-                        json=payload,
-                    ).json()
-                    st.write(response["choices"][0]["message"]["content"])
     
 else:
     st.info("OPENAI_API_KEY")
