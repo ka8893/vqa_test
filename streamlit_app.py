@@ -68,8 +68,9 @@ if U > 0:
         input_image_prompt = st.text_area(
             "Enter your prompt:", key="input_image_prompt", value=base_prompt
         )
-        if uploaded_file or uploaded_file2:
+        if uploaded_file and uploaded_file2:
             st.image(uploaded_file)
+            st.image(uploaded_file2)
             payload = {
                 "model": "gpt-4o",
                 "messages": [
@@ -96,6 +97,27 @@ if U > 0:
                 "max_tokens": 300,
             }
         
+        if uploaded_file:
+            st.image(uploaded_file)
+            payload = {
+                "model": "gpt-4o",
+                "messages": [
+                    
+                        {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
+                        {"role": "user",
+                        "content": [
+                            {"type": "text", "text": input_image_prompt},
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}"
+                                },
+                            },
+                        ],
+                         }
+                ],
+                "max_tokens": 300,
+            }
         if st.button("Submit"):
             if uploaded_file:
                 with st.spinner("生成中..."):
