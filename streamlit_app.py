@@ -58,7 +58,12 @@ with st.sidebar:
 if U > 0: 
     if mode == "OpenAI GPT-4o":
         st.markdown('### OpenAI GPT-4o')
+        st.markdown('### Input 1')
         uploaded_file = st.file_uploader(
+            "Upload an image to analyze", type=["jpg", "jpeg", "png"]
+        )
+        st.markdown('### Input 2')
+        uploaded_file2 = st.file_uploader(
             "Upload an image to analyze", type=["jpg", "jpeg", "png"]
         )
         base_prompt = "起こっているのは、火災、大雪、冠水、増水、土砂崩れ、落石、電柱倒壊、非該当のうちどれか一言で教えてください。"
