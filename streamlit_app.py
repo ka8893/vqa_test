@@ -72,6 +72,10 @@ if U > 0:
         )
         if uploaded_file:
             st.image(uploaded_file)
+            st.markdown('### Input 2')
+            uploaded_file2 = st.file_uploader(
+              "Upload an image to analyze", type=["jpg", "jpeg", "png"]
+            )
             payload = {
                 "model": "gpt-4o",
                 "messages": [
