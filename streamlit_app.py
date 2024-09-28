@@ -97,7 +97,7 @@ if U > 0:
                 "max_tokens": 300,
             }
         
-        if uploaded_file:
+        elif uploaded_file:
             st.image(uploaded_file)
             payload = {
                 "model": "gpt-4o",
