@@ -4,5 +4,5 @@ requests
 streamlit_drawable_canvas
 Pillow
 streamlit-audiorec
-google.generativeai
+google-generativeai
 
