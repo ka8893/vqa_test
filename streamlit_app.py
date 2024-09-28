@@ -20,10 +20,6 @@ import google.generativeai as genai
 # openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 # openai.api_key = st.secrets["OPENAIAPI"]["openai_api_key"]
 
-def to_markdown(text):
-  text = text.replace('•', '  *')
-  return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
-
 def image_config():
     col1, col2 = st.columns(2)
 
