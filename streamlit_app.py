@@ -121,7 +121,8 @@ if U > 0:
                         headers={"Authorization": f"Bearer {openai.api_key}"},
                         json=payload,
                     ).json()
-                    st.write(response["choices"][0]["message"]["content"])
+                    # st.write(response["choices"][0]["message"]["content"])
+                    st.write(completion.choices[0].message.content)
 
     if mode == "Google Gemini 1.5 Flash":
         st.markdown('### Google Gemini 1.5 Flash')
