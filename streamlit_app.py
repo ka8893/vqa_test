@@ -17,7 +17,7 @@ import pathlib
 import textwrap
 import google.generativeai as genai
 
-openai.api_key = st.secrets.OPEN_AI_API.openai_api_key
+openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 
 def to_markdown(text):
   text = text.replace('•', '  *')
