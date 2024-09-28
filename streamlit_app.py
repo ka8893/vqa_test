@@ -67,8 +67,8 @@ if U > 0:
             st.image(uploaded_file)
             st.image(uploaded_file2)
             completion = client.chat.completions.create(
-                "model": "gpt-4o",
-                "messages": [
+                "model"= "gpt-4o",
+                "messages"= [
                     
                         {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
                         {"role": "user",
@@ -95,8 +95,8 @@ if U > 0:
         elif uploaded_file:
             st.image(uploaded_file)
             completion = client.chat.completions.create(
-                "model": "gpt-4o",
-                "messages": [
+                "model" = "gpt-4o",
+                "messages"= [
                     
                         {"role": "system", "content": "You are an excellent secretary who responds in Japanese."},
                         {"role": "user",
