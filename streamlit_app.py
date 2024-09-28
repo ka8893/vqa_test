@@ -13,8 +13,6 @@ from PIL import Image, ImageOps
 from st_audiorec import st_audiorec
 from streamlit_drawable_canvas import st_canvas
 
-import pathlib
-import textwrap
 import google.generativeai as genai
 
 # openai.api_key = st.secrets.OPENAIAPI.openai_api_key
