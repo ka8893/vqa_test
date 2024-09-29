@@ -5,4 +5,5 @@ streamlit_drawable_canvas
 Pillow
 streamlit-audiorec
 google-generativeai
-
+sentencepiece
+einops
