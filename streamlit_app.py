@@ -53,7 +53,7 @@ with st.sidebar:
 if U > 0: 
     if mode == "OpenAI GPT-4o":
         st.markdown('### OpenAI GPT-4o')
-        openai.api_key = o_api_key
+        # openai.api_key = o_api_key
         uploaded_file = st.file_uploader(
             "1枚目の画像をアップロードしてください。", type=["jpg", "jpeg", "png"]
         )
