@@ -48,7 +48,7 @@ with st.sidebar:
     st.title("VQA Model")
     # o_api_key = st.text_input("OPEN_AI_KEY", type="password")
     # g_api_key = st.text_input("GEMINI_KEY", type="password")
-    mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash", "Japanese StableLM Instruct Alpha 7B"])
+    mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash", "Japanese InstructBLIP Alpha"])
 
 if U > 0: 
     if mode == "OpenAI GPT-4o":
@@ -174,7 +174,7 @@ if U > 0:
                 # レスポンスの表示
                 for response in responses:
                     st.write(response.text)
-    if mode == "Japanese StableLM Instruct Alpha 7B":
+    if mode == "Japanese InstructBLIP Alpha":
         
 else:
     st.info("OPENAI_API_KEY")
