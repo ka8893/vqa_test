@@ -161,7 +161,7 @@ if U > 0:
             images = [image]
             st.image(images)
             contents = [*images, base_prompt]
-        if uploaded_file and upload_file2:
+        if uploaded_file and uploaded_file2:
             image = PIL.Image.open(uploaded_file)
             image2 = PIL.Image.open(uploaded_file2)
             images = [image, 
