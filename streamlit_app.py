@@ -67,7 +67,7 @@ with st.sidebar:
     st.title("VQA Model")
     # o_api_key = st.text_input("OPEN_AI_KEY", type="password")
     # g_api_key = st.text_input("GEMINI_KEY", type="password")
-    mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash", "Japanese InstructBLIP Alpha"])
+    mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash"])
 
 if U > 0: 
     if mode == "OpenAI GPT-4o":
@@ -222,6 +222,5 @@ if U > 0:
         generated_text = tokenizer.batch_decode(outputs, skip_special_tokens=True)[0].strip()
         print(generated_text)
         # 桜と東京スカイツリー
-        
 else:
     st.info("OPENAI_API_KEY")
