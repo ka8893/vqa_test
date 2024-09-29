@@ -193,6 +193,7 @@ if U > 0:
                 # レスポンスの表示
                 for response in responses:
                     st.write(response.text)
+    """
     if mode == "Japanese InstructBLIP Alpha":
         # load model
         model = AutoModelForVision2Seq.from_pretrained("stabilityai/japanese-instructblip-alpha", trust_remote_code=True)
@@ -222,5 +223,6 @@ if U > 0:
         generated_text = tokenizer.batch_decode(outputs, skip_special_tokens=True)[0].strip()
         print(generated_text)
         # 桜と東京スカイツリー
+    """
 else:
     st.info("OPENAI_API_KEY")
