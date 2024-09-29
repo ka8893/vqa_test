@@ -46,8 +46,8 @@ if "all_text" not in st.session_state:
 U = 1
 with st.sidebar:
     st.title("VQA Model")
-    o_api_key = st.text_input("OPEN_AI_KEY", type="password")
-    g_api_key = st.text_input("GEMINI_KEY", type="password")
+    # o_api_key = st.text_input("OPEN_AI_KEY", type="password")
+    # g_api_key = st.text_input("GEMINI_KEY", type="password")
     mode = st.selectbox("モードを選択", options=["OpenAI GPT-4o", "Google Gemini 1.5 Flash"])
 
 if U > 0: 
