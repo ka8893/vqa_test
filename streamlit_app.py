@@ -19,6 +19,12 @@ genai.configure(api_key=st.secrets.GOOGLEAPI.google_api_key)
 openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 # openai.api_key = st.secrets["OPENAIAPI"]["openai_api_key"]
 
+import torch
+from transformers import LlamaTokenizer, AutoModelForVision2Seq, BlipImageProcessor
+from PIL import Image
+import requests
+
+
 def image_config():
     col1, col2 = st.columns(2)
 
