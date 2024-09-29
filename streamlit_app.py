@@ -104,7 +104,7 @@ if U > 0:
                             {
                                 "type": "image_url",
                                 "image_url": {
-                                    "url": f"data:image/jpeg;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}"
+                                    "url": f"data:image/jpg;base64,{base64.b64encode(uploaded_file.getvalue()).decode()}"
                                 },
                             },
                         ],
