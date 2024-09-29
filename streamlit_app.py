@@ -156,16 +156,16 @@ if U > 0:
         ]
         # モデルの準備
         model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest", safety_settings=safety_settings)
-        if uploaded_file:
-            image = PIL.Image.open(uploaded_file)
-            images = [image]
-            st.image(images)
-            contents = [*images, base_prompt]
         if uploaded_file and uploaded_file2:
             image = PIL.Image.open(uploaded_file)
             image2 = PIL.Image.open(uploaded_file2)
             images = [image, 
                       image2]
+            st.image(images)
+            contents = [*images, base_prompt]
+        elif uploaded_file:
+            image = PIL.Image.open(uploaded_file)
+            images = [image]
             st.image(images)
             contents = [*images, base_prompt]
         if st.button("Submit"):
