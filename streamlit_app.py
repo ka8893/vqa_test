@@ -16,7 +16,7 @@ from streamlit_drawable_canvas import st_canvas
 import google.generativeai as genai
 genai.configure(api_key=st.secrets.GOOGLEAPI.google_api_key)
 
-# openai.api_key = st.secrets.OPENAIAPI.openai_api_key
+openai.api_key = st.secrets.OPENAIAPI.openai_api_key
 # openai.api_key = st.secrets["OPENAIAPI"]["openai_api_key"]
 
 def image_config():
